@@ -55,7 +55,7 @@ export const projects = [
     accent: "#3fb27f", // green
     cardSubtitle: "A Duolingo-style Python learning app for data science",
     tags: ["Pandas", "Numpy", "Matplotlib"],
-    cover: "assets/drillpy/drill.py logo.png", // card thumbnail
+    cover: "/assets/drillpy/drill.py logo.png", // card thumbnail
     tagline: "Making data science approachable. One drill at a time.",
     heroShots: ["/assets/drillpy/hero_1.png", "/assets/drillpy/hero_2.png"], // the wide app screenshots at the top of the page
     overview:
