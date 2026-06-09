@@ -32,7 +32,7 @@ export const profile = {
 export const about = {
   // Your photo — paste a URL or use "/me.jpg" from the public folder.
   portrait: "assets/home/personal.png",
-  body: "I am Joshua Fernandes, a student designer and front-end enthusiast based in India. Currently, I'm focused on designing and developing apps that solve problems. I'm experienced with UI/UX design, creating user flows and screens and also with tools like Canva for designing posts for social media.",
+  body: "I, Joshua Fernandes am a student designer and front-end enthusiast based in India. Currently, I'm focused on designing and developing apps that solve problems. I'm experienced with UI/UX design, creating user flows and screens and also with tools like Canva for designing posts for social media.",
   ctaHeading: "Let's build something exceptional.",
   ctaBody:
     "I'm currently available for freelance projects and collaborative opportunities. If you have a problem to solve, let's talk.",
