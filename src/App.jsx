@@ -4,6 +4,7 @@ import ProjectDetail from "./pages/ProjectDetail.jsx";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import { ScrollToTop } from "./components/ui.jsx";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
