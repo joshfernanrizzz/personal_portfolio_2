@@ -216,6 +216,32 @@ export default function ProjectDetail() {
         <Header p={p} />
         {p.type === "case-study" ? <CaseStudy p={p} /> : <Gallery p={p} />}
 
+        {p.notifyUrl && (
+          <Reveal>
+            <div
+              className="mt-16 p-8 rounded-2xl border border-line bg-surface/40 flex flex-col sm:flex-row sm:items-center justify-between gap-6"
+              style={{ borderColor: `${p.accent}33` }}
+            >
+              <div>
+                <p className="font-serif text-2xl" style={{ color: p.accent }}>
+                  Interested in {p.title}?
+                </p>
+                <p className="text-muted text-sm mt-2 font-light max-w-sm">
+                  It's launching soon. Drop your details and I'll personally
+                  notify you when it's live.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <ArrowLink
+                  label="Notify me"
+                  direction="right"
+                  href={p.notifyUrl}
+                />
+              </div>
+            </div>
+          </Reveal>
+        )}
+
         <Reveal>
           <div className="pt-16 mt-12 border-t border-line">
             <ArrowLink label="Back to all work" direction="left" to="/#work" />

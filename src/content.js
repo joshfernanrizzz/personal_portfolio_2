@@ -75,6 +75,7 @@ export const projects = [
       { title: "", image: "/assets/drillpy/key_2.png" },
       { title: "", image: "/assets/drillpy/key_3.png" },
     ],
+    notifyUrl: "https://forms.gle/j7AqXQjxXpYgzm5y6",
   },
 
   {
