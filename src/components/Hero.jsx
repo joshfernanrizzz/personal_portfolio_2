@@ -50,7 +50,7 @@ export default function Hero() {
         <motion.div variants={item} className="mt-11">
           <ArrowLink
             label="View work"
-            direction="right"
+            direction="none"
             onClick={scrollToWork}
           />
         </motion.div>
