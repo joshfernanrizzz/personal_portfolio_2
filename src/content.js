@@ -13,8 +13,8 @@ export const profile = {
   role: "Visual Designer & Builder",
   // Hero is split so the second line can be italic/emphasised:
   heroLine: "crafting quiet, cinematic",
-  heroEmphasis: "digital experiences.",
-  heroSub: "I design and build things that feel right.",
+  heroEmphasis: "Design that's.",
+  heroSub: "quiet and precise.",
 
   // ---- VERIFY THESE TWO (read from your Figma, double-check spelling) ----
   email: "joshfer057@gmail.com",
