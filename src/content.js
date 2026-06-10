@@ -197,7 +197,7 @@ export const projects = [
     title: "Other",
     type: "gallery",
     accent: "#b5533a", // rust
-    cardSubtitle: "Collection of other minor designs",
+    cardSubtitle: "Collection of other minor designs.",
     tags: ["Mixed"],
     cover: "assets/other/other.png",
     tagline: "A collection of smaller design pieces and experiments.",
