@@ -14,6 +14,7 @@ export const profile = {
   // Hero is split so the second line can be italic/emphasised:
   heroLine: "Design that's",
   heroEmphasis: "quiet and precise",
+  herosub: "Self-taught. Detail-driven. Always improving.",
 
   // ---- VERIFY THESE TWO (read from your Figma, double-check spelling) ----
   email: "joshfer057@gmail.com",
