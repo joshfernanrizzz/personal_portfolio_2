@@ -5,120 +5,163 @@ import { Reveal, SmartImage, ArrowLink, fixSrc } from "../components/ui.jsx";
 function Header({ p }) {
   return (
     <Reveal>
-      <div className="mb-12">
-        <ArrowLink label="All work" direction="left" to="/#work" />
-        <div className="flex items-center gap-4 mt-12 mb-5">
-          <span className="h-px w-12" style={{ background: p.accent }} />
-          <span className="eyebrow">{p.cardSubtitle}</span>
-        </div>
-        <h1
-          className="font-serif text-[clamp(3.2rem,10vw,7rem)] leading-[0.95] tracking-[-0.015em]"
-          style={{ color: p.accent, fontFamily: p.titleFont || undefined }}
-        >
-          {p.title}
-        </h1>
-        <div className="mt-7 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <p className="max-w-prose2 text-muted text-lg leading-relaxed font-light">
-            {p.tagline}
-          </p>
-          <div className="flex flex-wrap gap-x-3 shrink-0">
-            {p.tags.map((t, k) => (
-              <span
-                key={t}
-                className="font-mono text-[0.68rem] tracking-wide text-muted"
-              >
-                {t}
-                {k < p.tags.length - 1 && (
-                  <span className="ml-3 opacity-40">·</span>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
+      <ArrowLink label="All work" direction="left" to="/#work" />
+      <div className="mt-12 mb-4 flex items-center gap-4">
+        <span className="h-px w-12" style={{ background: p.accent }} />
+        <span className="eyebrow">{p.cardSubtitle}</span>
       </div>
-    </Reveal>
-  );
-}
-
-function Section({ label, accent, children }) {
-  return (
-    <Reveal>
-      <div className="grid md:grid-cols-[200px_1fr] gap-3 md:gap-12 py-10 border-t border-line">
-        <h3
-          className="font-sans font-medium text-[1.1rem] tracking-tight"
-          style={{ color: accent }}
-        >
-          {label}
-        </h3>
-        <p className="text-ink/85 leading-relaxed font-light text-[1.05rem] max-w-prose2">
-          {children}
+      <h1
+        className="font-serif text-[clamp(3.2rem,10vw,7rem)] leading-[0.95] tracking-[-0.015em]"
+        style={{ color: p.accent, fontFamily: p.titleFont || undefined }}
+      >
+        {p.title}
+      </h1>
+      <div className="mt-7 mb-4 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <p className="max-w-prose2 text-muted text-lg leading-relaxed font-light">
+          {p.tagline}
         </p>
+        <div className="flex flex-wrap gap-x-3 shrink-0">
+          {p.tags.map((t, k) => (
+            <span
+              key={t}
+              className="font-mono text-[0.68rem] tracking-wide text-muted"
+            >
+              {t}
+              {k < p.tags.length - 1 && (
+                <span className="ml-3 opacity-40">·</span>
+              )}
+            </span>
+          ))}
+        </div>
       </div>
     </Reveal>
   );
 }
 
-function Shot({ src, label }) {
-  return (
-    <Reveal delay={0.05}>
-      <SmartImage
-        src={src}
-        label={label}
-        className="w-full aspect-[16/10] object-cover rounded-xl my-8"
-      />
-    </Reveal>
-  );
-}
+/* ---------------- case study ---------------- */
 
 function CaseStudy({ p }) {
   return (
     <>
-      <Shot src={p.heroShots[0]} label="hero shot 1" />
-      <Section label="Overview" accent={p.accent}>
-        {p.overview}
-      </Section>
-      <Shot src={p.heroShots[1]} label="hero shot 2" />
-      <Section label="The Challenge" accent={p.accent}>
-        {p.challenge}
-      </Section>
-      <Section label="The Solution" accent={p.accent}>
-        {p.solution}
-      </Section>
-
+      {/* hero 1 — full width */}
       <Reveal>
-        <div className="pt-14">
-          <h3 className="eyebrow mb-7">Images</h3>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {p.images.map((src, i) => (
+        <SmartImage
+          src={p.heroShots[0]}
+          label="hero shot 1"
+          className="w-full aspect-[16/9] object-cover rounded-2xl mt-8"
+        />
+      </Reveal>
+
+      {/* overview — eyebrow + large lead text */}
+      <Reveal>
+        <div className="py-20 max-w-3xl">
+          <p className="eyebrow mb-6" style={{ color: p.accent }}>
+            Overview
+          </p>
+          <p className="font-serif text-[clamp(1.35rem,2.6vw,1.9rem)] leading-[1.5] text-ink/90">
+            {p.overview}
+          </p>
+        </div>
+      </Reveal>
+
+      {/* hero 2 — full width */}
+      <Reveal>
+        <SmartImage
+          src={p.heroShots[1]}
+          label="hero shot 2"
+          className="w-full aspect-[16/9] object-cover rounded-2xl"
+        />
+      </Reveal>
+
+      {/* challenge + solution — numbered two-column */}
+      <div className="py-20 grid md:grid-cols-2 gap-14 md:gap-16">
+        <Reveal>
+          <span
+            className="font-serif text-5xl block"
+            style={{ color: p.accent }}
+          >
+            01
+          </span>
+          <h3 className="font-sans font-medium text-xl mt-4 mb-4">
+            The Challenge
+          </h3>
+          <p className="text-ink/80 leading-relaxed font-light text-[1.02rem]">
+            {p.challenge}
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <span
+            className="font-serif text-5xl block"
+            style={{ color: p.accent }}
+          >
+            02
+          </span>
+          <h3 className="font-sans font-medium text-xl mt-4 mb-4">
+            The Solution
+          </h3>
+          <p className="text-ink/80 leading-relaxed font-light text-[1.02rem]">
+            {p.solution}
+          </p>
+        </Reveal>
+      </div>
+
+      {/* image grid — staggered 2-col */}
+      <Reveal>
+        <p className="eyebrow mb-7" style={{ color: p.accent }}>
+          In the app
+        </p>
+      </Reveal>
+      <div className="grid sm:grid-cols-2 gap-4">
+        {p.images.map((src, i) => (
+          <Reveal
+            key={i}
+            delay={(i % 2) * 0.07}
+            className={i % 2 === 1 ? "sm:mt-12" : ""}
+          >
+            <div className="overflow-hidden rounded-2xl group">
               <SmartImage
-                key={i}
                 src={src}
                 label={`image ${i + 1}`}
-                className="w-full aspect-[4/3] object-cover rounded-xl"
+                className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
-            ))}
-          </div>
-        </div>
-      </Reveal>
+            </div>
+          </Reveal>
+        ))}
+      </div>
 
+      {/* key features — numbered */}
       <Reveal>
-        <div className="pt-14">
-          <h3 className="eyebrow mb-7">Key Features</h3>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {p.keyFeatures.map((f, i) => (
+        <p className="eyebrow mt-24 mb-7" style={{ color: p.accent }}>
+          Key Features
+        </p>
+      </Reveal>
+      <div className="grid sm:grid-cols-3 gap-5">
+        {p.keyFeatures.map((f, i) => (
+          <Reveal key={i} delay={i * 0.07}>
+            <div className="flex items-baseline gap-3 mb-3">
+              <span
+                className="font-mono text-[0.7rem]"
+                style={{ color: p.accent }}
+              >
+                0{i + 1}
+              </span>
+              <span className="h-px flex-1 bg-line" />
+            </div>
+            <div className="overflow-hidden rounded-2xl group">
               <SmartImage
-                key={i}
                 src={f.image}
                 label={`feature ${i + 1}`}
-                className="w-full object-cover rounded-xl"
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
-            ))}
-          </div>
-        </div>
-      </Reveal>
+            </div>
+          </Reveal>
+        ))}
+      </div>
     </>
   );
 }
+
+/* ---------------- gallery ---------------- */
 
 const COLLAGE_H = [280, 220, 340, 200, 300, 240];
 
@@ -129,7 +172,6 @@ function GalleryItem({ item, index, accent }) {
   const props = hasLink
     ? { href: item.link, target: "_blank", rel: "noreferrer" }
     : {};
-
   return (
     <Wrapper {...props} className="group block mb-4 break-inside-avoid">
       <div className="relative overflow-hidden rounded-xl bg-surface-2">
@@ -187,11 +229,18 @@ function GalleryItem({ item, index, accent }) {
 function Gallery({ p }) {
   return (
     <>
-      <Section label="Context" accent={p.accent}>
-        {p.context}
-      </Section>
       <Reveal>
-        <div className="pt-8 columns-2 lg:columns-3 gap-4">
+        <div className="py-14 max-w-3xl">
+          <p className="eyebrow mb-6" style={{ color: p.accent }}>
+            Context
+          </p>
+          <p className="text-ink/85 leading-relaxed font-light text-[1.08rem]">
+            {p.context}
+          </p>
+        </div>
+      </Reveal>
+      <Reveal>
+        <div className="columns-2 lg:columns-3 gap-4">
           {p.items.map((it, i) => (
             <GalleryItem key={i} item={it} index={i} accent={p.accent} />
           ))}
@@ -215,7 +264,7 @@ export default function ProjectDetail() {
         {p.notifyUrl && (
           <Reveal>
             <div
-              className="mt-16 py-10 border-y flex flex-col sm:flex-row sm:items-center justify-between gap-7"
+              className="mt-20 py-10 border-y flex flex-col sm:flex-row sm:items-center justify-between gap-7"
               style={{ borderColor: `${p.accent}33` }}
             >
               <div>
